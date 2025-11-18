@@ -25,10 +25,10 @@ try {
     $pdo = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
     // 🔴 mientras depuramos: MUESTRA el error real
-    die('Error de conexión: ' . $e->getMessage());
+   //  die('Error de conexión: ' . $e->getMessage());
 
     // cuando todo funcione, puedes volver a dejarlo así:
-    // error_log('Error de conexión: ' . $e->getMessage());
-    // http_response_code(500);
-    // exit('No se pudo establecer conexión a la base de datos.');
+     error_log('Error de conexión: ' . $e->getMessage());
+     http_response_code(500);
+     exit('No se pudo establecer conexión a la base de datos.');
 }
