@@ -1,4 +1,5 @@
 <?php
+echo "OK desde Railway";
 require_once __DIR__ . '/config/app.php';
 // index.php (corregido)
 
