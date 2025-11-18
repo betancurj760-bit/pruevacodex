@@ -3,6 +3,7 @@
         
         "mercadopago/dx-php": "^3.7",
         "php": ">=8.2",
+        "ext-pdo": "*",
         "ext-pdo_mysql": "*"
     }
 }
