@@ -61,7 +61,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form action="../controller/logincontroller.php" method="POST">
+                    <form action="<?= BASE_URL ?>/controller/logincontroller.php" method="POST">
                         <input type="hidden" name="action" value="login">
                         <div class="mb-3">
                             <label for="username" class="form-label">Usuario o Correo Electrónico</label>

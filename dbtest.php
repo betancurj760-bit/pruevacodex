@@ -1,18 +1,22 @@
 <?php
-$host = getenv('DB_HOST');
-$port = getenv('DB_PORT');
-$db   = getenv('DB_NAME');
-$user = getenv('DB_USERNAME');
-$pass = getenv('DB_PASSWORD');
+require_once __DIR__ . '/config/app.php';
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+$host = env('DB_HOST');
+$port = env('DB_PORT');
+$db   = env('DB_NAME');
+$user = env('DB_USERNAME');
+$pass = env('DB_PASSWORD');
 
 echo "<pre>";
 echo "Intentando conectar a $host:$port / BD=$db\n";
 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
 try {
-    $mysqli = new mysqli($host, $user, $pass, $db, (int)$port);
+    $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
+    $pdo = new PDO($dsn, $user, $pass);
     echo "✅ Conectado correctamente\n";
-} catch (mysqli_sql_exception $e) {
-    echo "❌ ERROR: " . $e->getMessage() . "\n";
+} catch (PDOException $e) {
+    echo "❌ ERROR PDO ({$e->getCode()}): {$e->getMessage()}\n";
 }
