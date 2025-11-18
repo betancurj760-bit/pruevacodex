@@ -7,7 +7,7 @@ $username = env('DB_USERNAME', 'root');
 $password = env('DB_PASSWORD', '');
 $dbport   = (int) env('DB_PORT', 3306);
 
-// IMPORTANTE: incluir el puerto en el DSN
+// IMPORTANTE: aquí SÍ usamos el puerto
 $dsn = sprintf(
     'mysql:host=%s;port=%d;dbname=%s;charset=utf8mb4',
     $host,
@@ -24,10 +24,11 @@ $options = [
 try {
     $pdo = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
-    // Mientras estamos en pruebas, puedes descomentar la línea de abajo para ver el error real
-    // die('Error de conexión: ' . $e->getMessage());
+    // 🔴 mientras depuramos: MUESTRA el error real
+    die('Error de conexión: ' . $e->getMessage());
 
-    error_log('Error de conexión: ' . $e->getMessage());
-    http_response_code(500);
-    exit('No se pudo establecer conexión a la base de datos.');
+    // cuando todo funcione, puedes volver a dejarlo así:
+    // error_log('Error de conexión: ' . $e->getMessage());
+    // http_response_code(500);
+    // exit('No se pudo establecer conexión a la base de datos.');
 }
