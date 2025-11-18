@@ -4,6 +4,7 @@ $host = env('DB_HOST', 'localhost');
 $dbname = env('DB_NAME', 'agro_app');
 $username = env('DB_USERNAME', 'root');
 $password = env('DB_PASSWORD', '');
+$dbport = env('DB_PORT') ?: 3306;
 
 $dsn = sprintf('mysql:host=%s;dbname=%s;charset=utf8mb4', $host, $dbname);
 $options = [
