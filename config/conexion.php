@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/app.php';
 
-$host     = env('DB_HOST', 'localhost');
-$dbname   = env('DB_NAME', 'agro_app');
-$username = env('DB_USERNAME', 'root');
-$password = env('DB_PASSWORD', '');
+$host     = env('DB_HOST');
+$dbname   = env('DB_NAME');
+$username = env('DB_USERNAME');
+$password = env('DB_PASSWORD');
 $dbport   = (int) env('DB_PORT', 3306);
 
 // IMPORTANTE: aquí SÍ usamos el puerto
