@@ -5,7 +5,7 @@ $host     = env('DB_HOST');
 $dbname   = env('DB_NAME');
 $username = env('DB_USERNAME');
 $password = env('DB_PASSWORD');
-$dbport   = (int) env('DB_PORT', 3306);
+$dbport   = (int) env('DB_PORT');
 
 // IMPORTANTE: aquí SÍ usamos el puerto
 $dsn = sprintf(
