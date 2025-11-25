@@ -1,4 +1,7 @@
 <?php
+require_once '../config/app.php';
+require_once '../model/usermodel.php';
+require_once '../config/conexion.php';
 class Rol_Model {
     protected $pdo;
 

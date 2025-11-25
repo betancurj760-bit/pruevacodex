@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/app.php';
+require_once '../model/usermodel.php';
+require_once '../config/conexion.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

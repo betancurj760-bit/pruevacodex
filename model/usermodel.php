@@ -1,5 +1,7 @@
 <?php
 require_once 'Rol_Model.php';
+require_once '../model/usermodel.php';
+require_once '../config/conexion.php';
 
 class UserModel extends Rol_Model
 {

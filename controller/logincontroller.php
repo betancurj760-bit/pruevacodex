@@ -1,5 +1,7 @@
 <?php
 require_once '../config/app.php';
+require_once '../model/usermodel.php';
+require_once '../config/conexion.php';
 
 // Manejo de logout
 if (
@@ -20,8 +22,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-        require_once '../model/usermodel.php';
-        require_once '../config/conexion.php';
+
 
 class LoginController {
     private $model;
