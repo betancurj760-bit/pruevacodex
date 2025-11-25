@@ -54,7 +54,7 @@ class LoginController {
                     $_SESSION['user_id_agricultor'] = (int)$user['id_agricultor'];
                 }
                 // Redirección única
-                header("Location: ../index.php");
+                header("Location: " . base_url('index.php'));
                 exit;
             } else {
                 // Error de login
