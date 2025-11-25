@@ -14,7 +14,7 @@ require_once __DIR__ . '/config/conexion.php';
 // Verificar login (si esto debe estar aquí)
 $id_rol = $_SESSION['user_id_rol'] ?? null;
 if (!isset($_SESSION['user_id_rol'])) {
-    header("Location: view/login.php");
+    header("Location: " . base_url("view/login.php"));
     exit;
 }
 
@@ -104,7 +104,7 @@ $categoriasFiltro = $pdo->query("SELECT id_categoria, nombre FROM categoria ORDE
     <title>Pagina Principal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
+    <link rel="stylesheet" href="<?= base_url('css/styles.css') ?>">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         .producto-animate {
@@ -151,7 +151,7 @@ $categoriasFiltro = $pdo->query("SELECT id_categoria, nombre FROM categoria ORDE
 
 <body>
     <!-- Navbar -->
-    <?php include 'navbar.php'; ?>
+    <?php include __DIR__ . '/navbar.php'; ?>
 
     <!-- Sección de bienvenida -->
     <section class="container welcome-section mt-4 mb-0">
@@ -259,8 +259,8 @@ $categoriasFiltro = $pdo->query("SELECT id_categoria, nombre FROM categoria ORDE
                     <button type="submit" class="btn btn-success btn-lg me-2">
                         <i class="bi bi-search me-1"></i>Buscar
                     </button>
-                    <a href="index.php" class="btn btn-outline-secondary btn-lg">
-                        <i class="bi bi-arrow-clockwise me-1"></i>Limpiar
+                    <a href="<?= base_url('view/producto_detalle.php?id_producto=' . $producto['id_producto']) ?>"
+                           class="w-100 text-decoration-none text-dark">
                     </a>
                 </div>
             </form>
@@ -310,7 +310,7 @@ $categoriasFiltro = $pdo->query("SELECT id_categoria, nombre FROM categoria ORDE
                     $promedio = isset($promedios[$producto['id_producto']]) ? $promedios[$producto['id_producto']] : 0;
                     ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                        <a href="view/producto_detalle.php?id_producto=<?php echo $producto['id_producto']; ?>"
+                        <a href="<?= base_url('view/producto_detalle.php?id_producto=' . $producto['id_producto']) ?>">
                             class="w-100 text-decoration-none text-dark">
                             <div class="card h-100 border-0 shadow-sm minimal-card producto-animate"
                                  style="animation-delay: <?= $delay * $idx ?>s;">
@@ -354,7 +354,7 @@ $categoriasFiltro = $pdo->query("SELECT id_categoria, nombre FROM categoria ORDE
                 <i class="bi bi-search display-1 text-muted"></i>
                 <h4 class="text-muted mt-3">No se encontraron productos</h4>
                 <p class="text-muted">Intenta ajustar los filtros de búsqueda</p>
-                <a href="index.php" class="btn btn-success">Ver todos los productos</a>
+                <a href="<?= base_url('index.php') ?>" class="btn btn-success">Ver todos los productos</a>
             </div>
         <?php endif; ?>
     </section>
@@ -396,7 +396,7 @@ $categoriasFiltro = $pdo->query("SELECT id_categoria, nombre FROM categoria ORDE
                         $promedio = isset($promedios[$producto['id_producto']]) ? $promedios[$producto['id_producto']] : 0;
                         ?>
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch">
-                            <a href="view/producto_detalle.php?id_producto=<?php echo $producto['id_producto']; ?>"
+                            <a href="<?= base_url('view/producto_detalle.php?id_producto=' . $producto['id_producto']) ?>"
                                 class="w-100 text-decoration-none text-dark">
                                 <div class="card h-100 border-0 shadow-sm minimal-card producto-animate"
                                      style="animation-delay: <?= $delay * $idx ?>s;">
@@ -437,7 +437,7 @@ $categoriasFiltro = $pdo->query("SELECT id_categoria, nombre FROM categoria ORDE
     <?php endif; ?>
 
     </div>
-    <?php include 'config/conexion.php'; ?>
+
     <div class="container mt-5"></div>
 
     <footer class="text-center py-3">
