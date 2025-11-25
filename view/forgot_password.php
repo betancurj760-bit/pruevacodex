@@ -15,7 +15,7 @@
                     <?php if (isset($_GET['success'])): ?>
                         <div class="alert alert-success">Si el correo existe, se enviaron instrucciones.</div>
                     <?php endif; ?>
-                    <form action="../controller/forgotpasswordcontroller.php" method="POST">
+                    <form action="<?= base_url() ?>/controller/forgotpasswordcontroller.php" method="POST">
                         <div class="mb-3">
                             <label for="email" class="form-label">Correo electrónico</label>
                             <input type="email" class="form-control" id="email" name="email" required>

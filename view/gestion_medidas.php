@@ -12,7 +12,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Validar rol administrador (asumiendo rol 1 = admin)
 $id_rol = isset($_SESSION['user_id_rol']) ? (int) $_SESSION['user_id_rol'] : null;
 if ($id_rol !== 1) {
-    header("Location: ../index.php");
+    header("Location: " . base_url() . "/index.php");
     exit;
 }
 
@@ -28,7 +28,7 @@ ob_start();
     <title>Gestión de Unidades de Medida</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/css/styles.css">
     
 </head>
 

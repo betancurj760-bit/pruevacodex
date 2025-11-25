@@ -22,7 +22,7 @@ require_once '../controller/carga_masiva_controller.php';
     <title>Carga Masiva de Productos - Agricultor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/css/styles.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/css/styles.css">
 </head>
 <body>
     <?php include __DIR__ . '/../navbar.php'; ?>
